@@ -1,0 +1,14 @@
+language: minimal
+dist: trusty
+sudo: required
+env:
+- TEMPLATE=gce-parity/14.04
+- TEMPLATE=ubuntu-upstart/14.04
+- TEMPLATE=ubuntu-upstart/12.04
+script:
+- export IMAGE_DEST="travisci/${TEMPLATE//\//:}"
+- cd "${TEMPLATE}"
+- docker build -t "${IMAGE_DEST}" .
+after_success:
+- cd "${TRAVIS_BUILD_DIR}"
+- bin/docker-push
