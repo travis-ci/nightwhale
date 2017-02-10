@@ -6,9 +6,10 @@ env:
 - TEMPLATE=ubuntu-upstart/14.04
 - TEMPLATE=ubuntu-upstart/12.04
 script:
-- export IMAGE_DEST="travisci/${TEMPLATE//\//:}"
+- export DOCKER_DEST="travisci/${TEMPLATE//\//:}"
+- echo "DOCKER_DEST=${DOCKER_DEST}"
 - cd "${TEMPLATE}"
-- docker build -t "${IMAGE_DEST}" .
+- docker build -t "${DOCKER_DEST}" .
 after_success:
 - cd "${TRAVIS_BUILD_DIR}"
 - bin/docker-push
