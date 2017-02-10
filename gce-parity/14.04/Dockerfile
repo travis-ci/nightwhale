@@ -10,4 +10,6 @@ RUN apt-add-repository -y multiverse && \
     apt-add-repository -y restricted && \
     apt-add-repository -y universe
 
-RUN apt-get update -yq && cat /var/tmp/packages.txt | xargs apt-get install -yq
+RUN apt-get update -yq && \
+    cat /var/tmp/packages.txt \
+      | xargs apt-get install -yq --no-install-suggests --no-install-recommends
