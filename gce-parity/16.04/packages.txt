@@ -398,7 +398,6 @@ python3.5
 python3.5-minimal
 readline-common
 rename
-resolvconf
 rsync
 rsyslog
 run-one
@@ -427,7 +426,6 @@ time
 tmux
 tzdata
 ubuntu-keyring
-ubuntu-minimal
 ubuntu-release-upgrader-core
 ubuntu-standard
 ucf
