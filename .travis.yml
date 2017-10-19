@@ -2,12 +2,14 @@ language: minimal
 dist: trusty
 sudo: required
 env:
+- TEMPLATE=centos-ruby/7
 - TEMPLATE=gce-parity/14.04
 - TEMPLATE=gce-parity/16.04
+- TEMPLATE=ubuntu-ruby/14.04
+- TEMPLATE=ubuntu-ruby/16.04
 - TEMPLATE=ubuntu-systemd/16.04
 - TEMPLATE=ubuntu-upstart/12.04
 - TEMPLATE=ubuntu-upstart/14.04
-- TEMPLATE=centos-ruby/7
 script:
 - export DOCKER_DEST="travisci/${TEMPLATE//\//:}"
 - echo "DOCKER_DEST=${DOCKER_DEST}"
