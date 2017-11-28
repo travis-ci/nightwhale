@@ -5,9 +5,11 @@ env:
 - TEMPLATE=centos-ruby/7
 - TEMPLATE=gce-parity/14.04
 - TEMPLATE=gce-parity/16.04
+- TEMPLATE=gce-parity/16.04-ppc64le
 - TEMPLATE=ubuntu-ruby/14.04
 - TEMPLATE=ubuntu-ruby/16.04
 - TEMPLATE=ubuntu-systemd/16.04
+- TEMPLATE=ubuntu-systemd/16.04-ppc64le
 - TEMPLATE=ubuntu-upstart/12.04
 - TEMPLATE=ubuntu-upstart/14.04
 script:
