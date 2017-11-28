@@ -1,4 +1,4 @@
-language: minimal
+language: bash
 dist: trusty
 sudo: required
 env:
@@ -10,17 +10,13 @@ env:
 - TEMPLATE=ubuntu-systemd/16.04
 - TEMPLATE=ubuntu-upstart/12.04
 - TEMPLATE=ubuntu-upstart/14.04
-script:
-- export DOCKER_DEST="travisci/${TEMPLATE//\//:}"
-- echo "DOCKER_DEST=${DOCKER_DEST}"
-- cd "${TEMPLATE}"
-- docker build -t "${DOCKER_DEST}" .
-after_success:
-- cd "${TRAVIS_BUILD_DIR}"
-- if [[ "${TRAVIS_BRANCH}" == 'master' && "${TRAVIS_PULL_REQUEST}" == 'false' ]]; then
-    bin/docker-push;
-  else
-    echo "Not pushing.";
-    echo "  TRAVIS_BRANCH=${TRAVIS_BRANCH}";
-    echo "  TRAVIS_PULL_REQUEST=${TRAVIS_PULL_REQUEST}";
-  fi
+matrix:
+  include:
+  - env: TEMPLATE=gce-parity/16.04-ppc64le
+    os: power
+  - env: TEMPLATE=ubuntu-systemd/16.04-ppc64le
+    os: power
+  allow_failures:
+  - os: power
+script: ./bin/docker-build
+after_success: ./bin/docker-push
