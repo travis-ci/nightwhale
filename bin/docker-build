@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+set -o errexit
+
+main() {
+  local top
+  top="$(git rev-parse --show-toplevel)"
+
+  [[ "${TEMPLATE}" ]] || {
+    echo "Missing \${TEMPLATE} variable" >&2
+    exit 1
+  }
+
+  export DOCKER_DEST="travisci/${TEMPLATE//\//:}"
+  echo "DOCKER_DEST=${DOCKER_DEST}"
+  cd "${TRAVIS_BUILD_DIR:-${top}}/${TEMPLATE}"
+  docker build -t "${DOCKER_DEST}" .
+}
+
+main "$@"

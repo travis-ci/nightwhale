@@ -3,10 +3,24 @@
 set -o errexit
 
 main() {
+  if [[ "${TRAVIS_BRANCH}" != 'master' ]]; then
+    echo "Not pushing; TRAVIS_BRANCH='${TRAVIS_BRANCH}'"
+    exit 0
+  fi
+
+  if [[ "${TRAVIS_PULL_REQUEST}" != 'false' ]]; then
+    echo "Not pushing; TRAVIS_PULL_REQUEST='${TRAVIS_PULL_REQUEST}'"
+    exit 0
+  fi
+
   local envdir
   envdir=$(dirname "${1}")
+  local top
+  top="$(git rev-parse --show-toplevel)"
 
   set +o xtrace
+
+  pushd "${TRAVIS_BUILD_DIR:-${top}}" &>/dev/null
 
   : "${DOCKER_LOGIN_EMAIL:=.}"
 
