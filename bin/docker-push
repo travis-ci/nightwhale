@@ -3,15 +3,23 @@
 set -o errexit
 
 main() {
-  if [[ "${TRAVIS_BRANCH}" != 'master' ]]; then
-    echo "Not pushing; TRAVIS_BRANCH='${TRAVIS_BRANCH}'"
+  [[ "${TRAVIS_BRANCH}" == 'master' ]] || {
+    echo "Not pushing; TRAVIS_BRANCH='${TRAVIS_BRANCH}'" >&2
     exit 0
-  fi
+  }
 
-  if [[ "${TRAVIS_PULL_REQUEST}" != 'false' ]]; then
-    echo "Not pushing; TRAVIS_PULL_REQUEST='${TRAVIS_PULL_REQUEST}'"
+  [[ "${TRAVIS_PULL_REQUEST}" == 'false' ]] || {
+    echo "Not pushing; TRAVIS_PULL_REQUEST='${TRAVIS_PULL_REQUEST}'" >&2
     exit 0
-  fi
+  }
+
+  [[ "${TEMPLATE}" ]] || {
+    echo "Missing \${TEMPLATE} variable" >&2
+    exit 1
+  }
+
+  export DOCKER_DEST="travisci/${TEMPLATE//\//:}"
+  echo "DOCKER_DEST=${DOCKER_DEST}"
 
   local envdir
   envdir=$(dirname "${1}")
@@ -21,8 +29,6 @@ main() {
   set +o xtrace
 
   pushd "${TRAVIS_BUILD_DIR:-${top}}" &>/dev/null
-
-  : "${DOCKER_LOGIN_EMAIL:=.}"
 
   if [[ -f "${envdir}/DOCKER_LOGIN_USERNAME" ]]; then
     for f in ${envdir}/*; do
@@ -59,7 +65,6 @@ main() {
 
   __log 'msg="docker login"'
   docker login \
-    -e "${DOCKER_LOGIN_EMAIL}" \
     -u "${DOCKER_LOGIN_USERNAME}" \
     -p "${DOCKER_LOGIN_PASSWORD}" \
     "${DOCKER_LOGIN_SERVER}"
