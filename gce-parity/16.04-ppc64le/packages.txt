@@ -42,7 +42,6 @@ dh-python
 diffutils
 distro-info-data
 dmeventd
-dmidecode
 dmsetup
 dns-root-data
 dnsmasq-base
@@ -75,9 +74,6 @@ gpgv
 grep
 groff-base
 grub-common
-grub-gfxpayload-lists
-grub-pc
-grub-pc-bin
 grub2-common
 gzip
 hdparm
@@ -320,7 +316,6 @@ netcat-openbsd
 ntfs-3g
 ntp
 open-iscsi
-open-vm-tools
 openssh-client
 openssh-server
 openssh-sftp-server
