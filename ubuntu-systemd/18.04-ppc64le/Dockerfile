@@ -1,5 +1,5 @@
 # Adapted from https://github.com/solita/docker-systemd
-FROM ubuntu:16.04
+FROM ppc64le/ubuntu:18.04
 
 # Don't start any optional services except for the few we need.
 RUN find /etc/systemd/system \
