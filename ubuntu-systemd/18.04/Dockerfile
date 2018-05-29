@@ -1,5 +1,11 @@
 # Adapted from https://github.com/solita/docker-systemd
-FROM ubuntu:16.04
+FROM ubuntu:18.04
+
+RUN apt-get update -yqq
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -yqq \
+  --no-install-suggests --no-install-recommends apt-utils
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -yqq \
+  --no-install-suggests --no-install-recommends systemd
 
 # Don't start any optional services except for the few we need.
 RUN find /etc/systemd/system \
