@@ -28,7 +28,6 @@ cloud-guest-utils
 cloud-init
 cloud-initramfs-copymods
 cloud-initramfs-dyn-netconf
-command-not-found
 console-setup
 console-setup-linux
 coreutils
