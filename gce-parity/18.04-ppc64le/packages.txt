@@ -320,11 +320,11 @@ libzstd1:amd64
 linux-base
 linux-gcp
 linux-gcp-headers-5.0.0-1034
-linux-headers-5.0.0-1034-gcp
+linux-headers-5.4.0-1078-gcp
 linux-headers-gcp
-linux-image-5.0.0-1034-gcp
+linux-image-5.4.0-1078-gcp
 linux-image-gcp
-linux-modules-5.0.0-1034-gcp
+linux-modules-5.4.0-1078-gcp
 locales
 login
 logrotate
