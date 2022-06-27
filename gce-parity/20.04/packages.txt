@@ -311,11 +311,11 @@ libzstd1:amd64
 linux-base
 linux-gcp
 linux-gcp-headers-5.4.0-1080
-linux-headers-5.15.0-1012-gcp
+linux-headers-5.15.0-1006-gcp
 linux-headers-gcp
-linux-image-5.15.0-1012-gcp
+linux-image-5.15.0-1006-gcp
 linux-image-gcp
-linux-modules-5.15.0-1012-gcp
+linux-modules-5.15.0-1006-gcp
 locales
 login
 logrotate
