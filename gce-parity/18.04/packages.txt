@@ -319,12 +319,12 @@ libyaml-0-2:amd64
 libzstd1:amd64
 linux-base
 linux-gcp
-linux-gcp-headers-4.15.0-1008
-linux-headers-4.15.0-1008-gcp
+linux-gcp-headers-5.0.0-1034
+linux-headers-5.4.0-1049-gcp
 linux-headers-gcp
-linux-image-4.15.0-1008-gcp
+linux-image-5.4.0-1049-gcp
 linux-image-gcp
-linux-modules-4.15.0-1008-gcp
+linux-modules-5.4.0-1049-gcp
 locales
 login
 logrotate
