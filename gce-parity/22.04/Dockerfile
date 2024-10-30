@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ADD packages.txt /var/tmp/packages.txt
 
 # Disable the problematic post-invoke script
-RUN echo 'APT::Update::Post-Invoke-Success { "true"; };' > /etc/apt/apt.conf.d/no-cache-update
+# RUN echo 'APT::Update::Post-Invoke-Success { "true"; };' > /etc/apt/apt.conf.d/no-cache-update
 
 RUN apt-get update -yq && apt-get install -y software-properties-common
 
