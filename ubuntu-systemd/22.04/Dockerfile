@@ -1,9 +1,9 @@
 # Adapted from https://github.com/solita/docker-systemd
-FROM ubuntu:18.04
+FROM ubuntu:22.04
 
 RUN apt-get update -yqq
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -yqq \
-  --no-install-suggests --no-install-recommends apt-utils systemd-sysv libnss-systemd 
+  --no-install-suggests --no-install-recommends apt-utils
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -yqq \
   --no-install-suggests --no-install-recommends systemd
 

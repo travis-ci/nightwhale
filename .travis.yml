@@ -1,26 +1,30 @@
 language: bash
-dist: xenial
+dist: bionic
 sudo: required
 env:
-- TEMPLATE=centos-ruby/7
-- TEMPLATE=gce-parity/14.04
-- TEMPLATE=gce-parity/16.04
+# - TEMPLATE=centos-ruby/7
+# - TEMPLATE=gce-parity/14.04
+# - TEMPLATE=gce-parity/16.04
 - TEMPLATE=gce-parity/18.04
 - TEMPLATE=gce-parity/20.04
-- TEMPLATE=ubuntu-ruby/14.04
-- TEMPLATE=ubuntu-ruby/16.04
+- TEMPLATE=gce-parity/22.04
+- TEMPLATE=gce-parity/24.04
+# - TEMPLATE=ubuntu-ruby/14.04
+# - TEMPLATE=ubuntu-ruby/16.04
 - TEMPLATE=ubuntu-ruby/18.04
-- TEMPLATE=ubuntu-systemd/16.04
+# - TEMPLATE=ubuntu-systemd/16.04
 - TEMPLATE=ubuntu-systemd/18.04
 - TEMPLATE=ubuntu-systemd/20.04
-- TEMPLATE=ubuntu-upstart/12.04
-- TEMPLATE=ubuntu-upstart/14.04
+- TEMPLATE=ubuntu-systemd/22.04
+- TEMPLATE=ubuntu-systemd/24.04
+# - TEMPLATE=ubuntu-upstart/12.04
+# - TEMPLATE=ubuntu-upstart/14.04
 matrix:
   include:
-  - env: TEMPLATE=gce-parity/16.04-ppc64le
-    os: linux-ppc64le
-  - env: TEMPLATE=ubuntu-systemd/16.04-ppc64le
-    os: linux-ppc64le
+  # - env: TEMPLATE=gce-parity/16.04-ppc64le
+  #   os: linux-ppc64le
+  # - env: TEMPLATE=ubuntu-systemd/16.04-ppc64le
+  #   os: linux-ppc64le
   - env: TEMPLATE=gce-parity/18.04-ppc64le
     os: linux-ppc64le
   - env: TEMPLATE=ubuntu-systemd/18.04-ppc64le

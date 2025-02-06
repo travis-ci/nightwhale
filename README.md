@@ -1,6 +1,6 @@
 # The Whale Of The Night
 
-[![Build Status](https://travis-ci.org/travis-ci/nightwhale.svg?branch=master)](https://travis-ci.org/travis-ci/nightwhale)
+[![Build Status](https://travis-ci.com/travis-ci/nightwhale.svg?branch=master)](https://travis-ci.com/travis-ci/nightwhale)
 
 Nightly build docker stuff, specifically for use with things at Travis via
 [packer-templates](https://github.com/travis-ci/packer-templates).
@@ -8,7 +8,7 @@ Nightly build docker stuff, specifically for use with things at Travis via
 ## How, specifically
 
 - This repository is enabled on
-  [travis-ci.org](https://travis-ci.org/travis-ci/nightwhale) with nightly
+  [travis-ci.com](https://travis-ci.com/travis-ci/nightwhale) with nightly
 (daily) cron builds.
 - When a given job succeeds, and is on the `master` branch, and is not a pull
   request job, the resulting docker image is pushed to [Docker
