@@ -19,17 +19,17 @@ env:
 - TEMPLATE=ubuntu-systemd/24.04
 # - TEMPLATE=ubuntu-upstart/12.04
 # - TEMPLATE=ubuntu-upstart/14.04
-matrix:
-  include:
+# matrix:
+  # include:
   # - env: TEMPLATE=gce-parity/16.04-ppc64le
   #   os: linux-ppc64le
   # - env: TEMPLATE=ubuntu-systemd/16.04-ppc64le
   #   os: linux-ppc64le
-  - env: TEMPLATE=gce-parity/18.04-ppc64le
-    os: linux-ppc64le
-  - env: TEMPLATE=ubuntu-systemd/18.04-ppc64le
-    os: linux-ppc64le
-  allow_failures:
-  - os: linux-ppc64le
+  # - env: TEMPLATE=gce-parity/18.04-ppc64le
+  #   os: linux-ppc64le
+  # - env: TEMPLATE=ubuntu-systemd/18.04-ppc64le
+  #   os: linux-ppc64le
+  # allow_failures:
+  # - os: linux-ppc64le
 script: ./bin/docker-build
 after_success: ./bin/docker-push
